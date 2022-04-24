@@ -2,7 +2,7 @@
 
 describe("test contact us form via webdriverUni", () => {
 
-    it.only("should be able to submit a successful submission via contact us form", () => {
+    it("should be able to submit a successful submission via contact us form", () => {
         
         cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html')
         cy.document().should('have.property','charset').and('eq','UTF-8')

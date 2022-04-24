@@ -15,3 +15,11 @@ Clone the project
 ## Run single test
 
 it.only()
+
+## Run commands in terminals
+
+Tests will be run in headless mode with electron
+```bash
+  ./node_modules/.bin/cypress run
+```
+
