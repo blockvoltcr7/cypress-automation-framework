@@ -14,7 +14,14 @@ describe("test contact us form via webdriverUni", () => {
        
     });
 
-    it("should not be able to submit a successful submission via contact us form as all fields are required", () => {
+    it.only("should not be able to submit a successful submission via contact us form as all fields are required", () => {
+        
+        cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html')
+        // cy.get('#contact-us').click()
+        cy.get('[name="first_name"]').type('Sami')
+        cy.get('[name="last_name"]').type('Sabir-Idrissi')
+        cy.get('textarea.feedback-input').type('Cypress is super awesome and extremely fast compared to Selenium with Java')
+        cy.get('[type="submit"]').click()
         
     });
 
