@@ -2,7 +2,7 @@
 
 describe("Test contact us via automation test store", () => {
 
-    it("", () => {
+    it("Should return correct message after submitting form", () => {
         
         cy.visit('http://automationteststore.com/')
         cy.get('.info_links_footer > :nth-child(5) > a').click()

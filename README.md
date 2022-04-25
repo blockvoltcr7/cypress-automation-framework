@@ -16,6 +16,12 @@ Clone the project
 
 it.only()
 
+running individual test via command line
+```bash
+  ./node_modules/.bin/cypress run --spec cypress/integration/automation-test-store/contact-us.js
+```
+https://docs.cypress.io/guides/guides/command-line#How-to-run-commands
+
 ## Run commands in terminals
 
 Tests will be run in headless mode with electron
