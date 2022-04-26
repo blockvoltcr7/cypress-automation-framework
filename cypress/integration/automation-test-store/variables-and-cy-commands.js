@@ -40,13 +40,15 @@ describe("Variables verfied, cypress commands and jquery commands", () => {
         cy.contains('#ContactUsFrm', 'Contact Us Form').then(text => {
             const firstNameText = text.find('#field_11').text()
             expect(firstNameText).to.contain('First name')
-        })
 
-        //Embeded commands (closure)
-        cy.get('#field_11').then(fnText => {
+            //Embeded commands (closure)
+            cy.get('#field_11').then(fnText => {
             cy.log(fnText.text())
             cy.log(fnText)
         })
+        })
+
+      
 
     });  
 
