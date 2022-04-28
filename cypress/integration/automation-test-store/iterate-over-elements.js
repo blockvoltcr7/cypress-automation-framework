@@ -17,7 +17,7 @@ describe("Iterate over elements", () => {
       
     });
 
-    it("add specific product to basket", () => {
+    it.only("add specific product to basket", () => {
         
 
         cy.visit('http://automationteststore.com/')
