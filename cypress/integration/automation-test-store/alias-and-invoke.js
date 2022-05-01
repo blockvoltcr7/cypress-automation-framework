@@ -18,8 +18,10 @@ describe("Alias and Invoke", () => {
         
         cy.visit('http://automationteststore.com/')
         cy.get("a[href*='product/category&path=']").contains("Hair Care").click()
-        cy.get('.thumbnail').should('have.length', 8)
-        //get the number of products with class name = thumbnail
+        cy.get('.thumbnail').as('productThumbnail')
+        cy.get('@productThumbnail').should('have.length',8)
+        cy.get('@productThumbnail').find('.productcart').invoke('attr','title').should('include','Add to Cart') //find attribute that contains the word title
+        cy.get('@productThumbnail').find('.productcart').should('have.length',8)
 
 
     });
