@@ -39,14 +39,39 @@ describe("Alias and Invoke", () => {
         })
 
         cy.get('.thumbnail').find('.oneprice').invoke('text').as('itemPrice')
+        cy.get('.thumbnail').find('.pricenew').invoke('text').as('saleItemPrice')
+
+
+
+        let itemsTotal = 0;
         cy.get('@itemPrice').then($linktxt => {
+
+            let itemsPriceTotal = 0;
             let itemPrice = $linktxt.split('$');
             let i;
             for(i = 0; i < itemPrice.length; i++){
-                cy.log("Item price : "+itemPrice[i])
+                cy.log("None Item price : "+itemPrice[i])
+                itemsPriceTotal += Number(itemPrice[i])
             }
+            itemsTotal += itemsPriceTotal;
+            cy.log("non sale price items total "+itemsTotal)
+
         })
 
+        cy.get('@saleItemPrice').then($linktxt => {
+            let saleItemsPrice = 0;
+            let saleItemPrice = $linktxt.split('$');
+            let i;
+            for(i = 0; i < saleItemPrice.length; i++){
+                cy.log("Sale item price : "+saleItemPrice[i])
+                saleItemsPrice += Number(saleItemPrice[i])
+            }
+            itemsTotal += saleItemsPrice;
+            cy.log("sale price items total "+itemsTotal)
+
+        })
+
+        // cy.log("combined nonsale and sale items :"+ itemsTotal)
 
     });
 
