@@ -14,7 +14,7 @@ describe("Alias and Invoke", () => {
         cy.get('@productThumbnail').should('include','Seaweed Conditioner')
     });
 
-    it.only("challenge", () => {
+    it("challenge", () => {
         
         cy.visit('http://automationteststore.com/')
         cy.get("a[href*='product/category&path=']").contains("Hair Care").click()
@@ -27,7 +27,25 @@ describe("Alias and Invoke", () => {
     });
 
  
+    it.only("Calculate totals of normal and sale products", () => {
+        
+        cy.visit('http://automationteststore.com/')
+        //iterate over the elements and add total cost of each items when adding all of them up.
+        cy.get('.thumbnail').as('productThumbnail')
+        cy.get('@productThumbnail')
 
+        cy.get('@productThumbnail').find('.oneprice').each(($el, index, $list) => {
+
+            
+            cy.log("index "+ index + " text "+ $el.text())
+
+
+        })
+
+
+    });
+
+ 
 
 
 })
