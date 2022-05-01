@@ -35,11 +35,16 @@ describe("Alias and Invoke", () => {
         cy.get('@productThumbnail')
 
         cy.get('@productThumbnail').find('.oneprice').each(($el, index, $list) => {
+            cy.log("index "+ index + " text "+ $el.text());
+        })
 
-            
-            cy.log("index "+ index + " text "+ $el.text())
-
-
+        cy.get('.thumbnail').find('.oneprice').invoke('text').as('itemPrice')
+        cy.get('@itemPrice').then($linktxt => {
+            let itemPrice = $linktxt.split('$');
+            let i;
+            for(i = 0; i < itemPrice.length; i++){
+                cy.log("Item price : "+itemPrice[i])
+            }
         })
 
 
